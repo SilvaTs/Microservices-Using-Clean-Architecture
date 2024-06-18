@@ -2,7 +2,7 @@
 using MongoDB.Driver;
 using System.Text.Json;
 
-namespace Catalog.Infrastructure
+namespace Catalog.Infrastructure.Data
 {
     public class TypeContextSeed
     {
