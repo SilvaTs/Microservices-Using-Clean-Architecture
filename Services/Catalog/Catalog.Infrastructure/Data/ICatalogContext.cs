@@ -3,10 +3,10 @@ using MongoDB.Driver;
 
 namespace Catalog.Infrastructure.Data
 {
-    public class ICatalogContext
+    public interface ICatalogContext
     {
-        public IMongoCollection<Product> Products { get; }
-        public IMongoCollection<ProductBrand> Brands { get; }
-        public IMongoCollection<ProductType> ProductTypes { get; }
+        IMongoCollection<Product> Products { get; }
+        IMongoCollection<ProductBrand> Brands { get; }
+        IMongoCollection<ProductType> Types { get; }
     }
 }

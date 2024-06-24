@@ -1,8 +1,9 @@
 ﻿using Catalog.Core.Entities;
 using Catalog.Core.Repositories;
+using Catalog.Infrastructure.Data;
 using MongoDB.Driver;
 
-namespace Catalog.Infrastructure.Data.Repositories
+namespace Catalog.Infrastructure.Repositories
 {
     public class ProductRepository : IProductRepository, IBrandRepository, ITypesRepository
     {
@@ -67,7 +68,6 @@ namespace Catalog.Infrastructure.Data.Repositories
             DeleteResult deleteResult = await _catalogContext
                                                 .Products
                                                 .DeleteOneAsync(filter);
-
             return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
 
         }
@@ -77,13 +77,13 @@ namespace Catalog.Infrastructure.Data.Repositories
             return await _catalogContext
                          .Brands
                          .Find(p => true)
-                         .ToListAsync();
+                         .ToListAsync();            
         }
 
         public async Task<IEnumerable<ProductType>> GetAllTypes()
         {
             return await _catalogContext
-                       .ProductTypes
+                       .Types
                        .Find(p => true)
                        .ToListAsync();
         }

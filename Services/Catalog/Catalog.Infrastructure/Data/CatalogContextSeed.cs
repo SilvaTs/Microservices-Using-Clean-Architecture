@@ -9,7 +9,7 @@ namespace Catalog.Infrastructure.Data
         public static void SeedData(IMongoCollection<Product> productCollection)
         {
             bool checkProducts = productCollection.Find(b => true).Any();
-            string path = Path.Combine("Data", "SeedData", "products.json");
+            string path = @"C:\cleanArchitecture\Microservices-Using-Clean-Architecture\Services\Catalog\Catalog.Infrastructure\Data\SeedData\products.json";
             if (!checkProducts)
             {
                 var productsData = File.ReadAllText(path);
